@@ -24,7 +24,8 @@ public class SecurityConfig {
                 .and()
                 .addFilter(corsFilter)  // @CrossOrigin(인증X), 시큐리티에 필터에 등록 해서 사용 하는 필터는 인증이 필요할 때 (인증 O)
                 .formLogin().disable()
-                .httpBasic().disable()  // -- 이 위까지 JWT 기본 옵션으로 사용해야 함.
+                .httpBasic().disable()
+// -- 이 위까지 JWT 기본 옵션으로 사용해야 함.
                 .authorizeRequests()
                 .antMatchers("/api/v1/user/**")
                 .access("hasRole('ROLE_USER') or hasRole('ROLE_MANAGER') or hasRole('ROLE_ADMIN')")
