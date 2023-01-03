@@ -20,7 +20,8 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-//        http.addFilterBefore(new MyFilter1(), BasicAuthenticationFilter.class);
+        // Security가 동작 하기 전에 Filter가 타야 함.
+        http.addFilterBefore(new MyFilter1(), BasicAuthenticationFilter.class);
         http.csrf().disable();
 
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) // 세션 사용 하지 않겠다는 옵션
